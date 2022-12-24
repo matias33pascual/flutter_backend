@@ -10,25 +10,20 @@ class Counter extends StatefulWidget {
 }
 
 class _CounterState extends State<Counter> {
-  late int _countValue;
+  late int _value;
 
   @override
   void initState() {
-    _countValue = widget.initialValue;
-    if (kDebugMode) print('initState: $_countValue');
-    super.initState();
-  }
+    _value = widget.initialValue;
 
-  onPressedHandler() {
-    setState(() {
-      _countValue++;
-      if (kDebugMode) print('setState: $_countValue');
-    });
+    debugPrint('initState: $_value');
+
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    if (kDebugMode) print('build: $_countValue');
+    if (kDebugMode) print('build: $_value');
 
     return Column(
       children: [
@@ -38,29 +33,8 @@ class _CounterState extends State<Counter> {
     );
   }
 
-  @override
-  void didUpdateWidget(covariant Counter oldWidget) {
-    super.didUpdateWidget(oldWidget);
-
-    if (oldWidget.initialValue != widget.initialValue) {
-      _countValue = widget.initialValue;
-
-      if (kDebugMode) {
-        print('didUpdateWidget: $_countValue');
-      }
-    }
-  }
-
-  @override
-  void dispose() {
-    if (kDebugMode) print('dispose: $_countValue');
-    super.dispose();
-  }
-
-  Center _buildText() {
-    return Center(
-      child: Text('$_countValue'),
-    );
+  Text _buildText() {
+    return Text('$_value');
   }
 
   ElevatedButton _buildButton() {
@@ -68,5 +42,31 @@ class _CounterState extends State<Counter> {
       onPressed: onPressedHandler,
       child: const Icon(Icons.add),
     );
+  }
+
+  void onPressedHandler() {
+    setState(() {
+      _value++;
+    });
+
+    debugPrint('setState: $_value');
+  }
+
+  @override
+  void didUpdateWidget(covariant Counter oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.initialValue != widget.initialValue) {
+      _value = widget.initialValue;
+    }
+
+    debugPrint('didUpdateWidget: $_value');
+  }
+
+  @override
+  void dispose() {
+    debugPrint('dispose: $_value');
+
+    super.dispose();
   }
 }

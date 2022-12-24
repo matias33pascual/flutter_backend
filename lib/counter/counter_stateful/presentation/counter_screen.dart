@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_backend/counter/counter_exports.dart';
+import 'package:flutter_backend/counter/counter_stateful/index.dart';
 
 class CounterScreen extends StatefulWidget {
   const CounterScreen({Key? key}) : super(key: key);
@@ -9,7 +9,7 @@ class CounterScreen extends StatefulWidget {
 }
 
 class _CounterScreenState extends State<CounterScreen> {
-  int value = 0;
+  int currentValue = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -17,23 +17,21 @@ class _CounterScreenState extends State<CounterScreen> {
       body: ListView.separated(
         itemCount: 20,
         padding: const EdgeInsets.all(25),
-        separatorBuilder: (context, index) => const Divider(height: 50),
-        itemBuilder: (BuildContext context, int index) {
-          return Counter(initialValue: value);
-        },
+        separatorBuilder: (_, __) => const Divider(height: 50),
+        itemBuilder: (_, __) => Counter(initialValue: currentValue),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => setState(() => value++),
-        child: _buildButtonChild(),
+        onPressed: () => setState(() => currentValue++),
+        child: _buildAddButton(),
       ),
     );
   }
 
-  Column _buildButtonChild() {
+  Column _buildAddButton() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('$value', textAlign: TextAlign.center),
+        Text('$currentValue', textAlign: TextAlign.center),
         const Icon(Icons.add),
       ],
     );
