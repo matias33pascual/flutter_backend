@@ -6,6 +6,7 @@ import 'package:flutter_backend/counter/counter_inherited/index.dart';
 import 'package:flutter_backend/counter/counter_notifier/index.dart';
 import 'package:flutter_backend/mvc/mvc_basic/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_backend/mvc/mvc_input/index.dart';
 
 void main() => runApp(const MyApp());
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Data & Backend',
-      home: MVCExample(),
+      home: MVCInputExample(),
     );
   }
 }
