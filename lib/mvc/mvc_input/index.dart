@@ -8,7 +8,7 @@ import 'package:flutter_backend/mvc/mvc_input/presentation/app_view.dart';
 export 'package:flutter_backend/mvc/mvc_input/presentation/app_state.dart';
 export 'package:flutter_backend/mvc/mvc_input/presentation/app_controller.dart';
 export 'package:flutter_backend/mvc/mvc_input/presentation/app_view.dart';
-export 'package:flutter_backend/mvc/mvc_input/presentation/input_text.dart';
+export 'package:flutter_backend/mvc/mvc_input/presentation/widgets/input_text.dart';
 
 class MVCInputExample extends StatelessWidget {
   const MVCInputExample({Key? key}) : super(key: key);
@@ -16,7 +16,7 @@ class MVCInputExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (context) => AppController(AppState.instance),
+        create: (context) => AppController(AppState.state),
         child: const Scaffold(body: Center(child: MVCInputScreen())));
   }
 }

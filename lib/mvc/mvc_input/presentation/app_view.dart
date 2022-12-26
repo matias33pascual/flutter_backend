@@ -15,12 +15,13 @@ class _MVCInputScreenState extends State<MVCInputScreen> {
   @override
   Widget build(BuildContext context) {
     final AppController appController = Provider.of<AppController>(context);
+    final AppState appState = AppState.state;
 
     return Column(
       children: [
         InputText(onChangeHandler: (value) => setState(() => text = value)),
         _buildSetNewTextButton(() => appController.setNewText(text)),
-        Text(AppState.instance.text),
+        Text(appState.text),
       ],
     );
   }
