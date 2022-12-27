@@ -1,21 +1,24 @@
-import 'package:flutter_backend/mvc/mvc_service/data/mock_password_repository.dart';
+import '../data/mock_password_repository.dart';
 
 class PasswordService {
-  late final MockPasswordRepository passwordRepository;
-  late int latencyMilliseconds;
+  PasswordService({
+    required this.passwordRepository,
+    required this.latencyMilliseconds,
+  });
 
-  PasswordService(this.passwordRepository, this.latencyMilliseconds);
+  late final MockPasswordRepository passwordRepository;
+  final int latencyMilliseconds;
 
   Future<bool> checkPassword(String password) async {
-    await latency();
+    await _latency();
     return Future.value(passwordRepository.checkPassword(password));
   }
 
   Future<String> getCorrectPassword() async {
-    await latency();
+    await _latency();
     return Future.value(passwordRepository.getCorrectPassword());
   }
 
-  Future<dynamic> latency() =>
+  Future<dynamic> _latency() =>
       Future.delayed(Duration(milliseconds: latencyMilliseconds));
 }

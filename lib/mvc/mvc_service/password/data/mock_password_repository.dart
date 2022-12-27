@@ -5,5 +5,6 @@ class MockPasswordRepository {
 
   String getCorrectPassword() => correctPassword;
 
-  bool checkPassword(String password) => correctPassword.contains(password);
+  bool checkPassword(String password) =>
+      correctPassword.compareTo(password) == 0;
 }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_backend/mvc/mvc_service/presentation/mvc_service_screen.dart';
-
-export 'package:flutter_backend/mvc/mvc_service/presentation/mvc_service_screen.dart';
+import 'package:flutter_backend/mvc/mvc_service/password/presentation/password_screen.dart';
 
 class MVCServiceExamenple extends StatelessWidget {
   const MVCServiceExamenple({Key? key}) : super(key: key);
@@ -9,7 +7,7 @@ class MVCServiceExamenple extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: MVCServiceScreen()),
+      body: Center(child: PasswordScreen()),
     );
   }
 }
