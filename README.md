@@ -2,11 +2,13 @@
 
 A Flutter project to learn how to use Clean Architecture with MVCS design and State Management in Flutter.
 
-## Counter
+## Features
+
+### Counter
 
 Examples of how to use stateful widgets, inherited widgets and change notifier provider.
 
-## MVC
+### MVC
 
 Examples of how to use the MVCS (Model, View, Controller, Service) design with Provider package for state management.
 
